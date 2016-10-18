@@ -1,5 +1,5 @@
 module Raffle {
     var PageModule = angular.module("PageModule", []);
 
-    PageModule.component("indexPage", IndexPage());
+    PageModule.component("issueScreen", IssueScreen());
 }

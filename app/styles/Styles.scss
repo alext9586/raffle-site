@@ -1,0 +1,8 @@
+@import "_variables";
+@import "IssueScreen";
+
+html,
+body {
+    line-height: $line-height;
+    font-size: $font-size-m;
+}

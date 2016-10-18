@@ -1,0 +1,14 @@
+.issue-screen .ticket-number-container {
+  text-align: center;
+  font-size: 32px;
+  line-height: 1em;
+  padding: 4px;
+  border: 1px solid black; }
+
+.issue-screen .take-button {
+  text-transform: uppercase; }
+
+html,
+body {
+  line-height: 1.5em;
+  font-size: 16px; }
