@@ -8,8 +8,20 @@ var Raffle;
     }
     Raffle.IssueScreen = IssueScreen;
     var IssueScreenController = (function () {
-        function IssueScreenController() {
+        function IssueScreenController(raffleService) {
+            this.raffleService = raffleService;
+            this.$inject = ["raffleService"];
         }
+        Object.defineProperty(IssueScreenController.prototype, "value", {
+            get: function () {
+                return this.raffleService.maxValue;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        IssueScreenController.prototype.take = function () {
+            this.raffleService.take();
+        };
         return IssueScreenController;
     }());
     Raffle.IssueScreenController = IssueScreenController;

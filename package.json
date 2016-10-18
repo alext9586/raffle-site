@@ -8,7 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/alext9586/raffle-site"
+  },
   "devDependencies": {
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7",

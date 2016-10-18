@@ -36,5 +36,5 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Map files
-.js.map
+# Ignore generated files
+**/*.js.map

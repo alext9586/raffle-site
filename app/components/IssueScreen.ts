@@ -7,8 +7,18 @@ module Raffle {
     }
 
     export class IssueScreenController {
-        constructor() {
+        private $inject: string[] = ["raffleService"];
+
+        private get value(): number {
+            return this.raffleService.maxValue;
+        }
+        
+        constructor(private raffleService: IRaffleService) {
             
+        }
+
+        private take(): void {
+            this.raffleService.take();
         }
     }
 }
