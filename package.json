@@ -1,0 +1,21 @@
+{
+  "name": "raffle",
+  "version": "1.0.0",
+  "description": "Issues numbers sequentially, then allows picking of a random ticket from pool.",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-shell": "^0.5.2",
+    "http-server": "^0.9.0",
+    "typescript": "^2.0.3"
+  }
+}
