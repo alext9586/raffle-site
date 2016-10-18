@@ -11,6 +11,8 @@ var Raffle;
         function DrawScreenController(raffleService) {
             this.raffleService = raffleService;
             this.$inject = ["raffleService"];
+            this.isSpinning = false;
+            this.isSpinDown = false;
         }
         Object.defineProperty(DrawScreenController.prototype, "value", {
             get: function () {
@@ -19,11 +21,36 @@ var Raffle;
             enumerable: true,
             configurable: true
         });
-        DrawScreenController.prototype.spin = function () {
-            console.log("spin");
+        Object.defineProperty(DrawScreenController.prototype, "allowSpin", {
+            get: function () {
+                return this.raffleService.allowSpin && !this.isSpinDown;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(DrawScreenController.prototype, "allowDiscard", {
+            get: function () {
+                return this.value <= 0
+                    ? false
+                    : !this.isSpinning;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        DrawScreenController.prototype.spinActive = function () {
+            this.isSpinning = true;
+            this.raffleService.spinActive();
         };
-        DrawScreenController.prototype.draw = function () {
-            console.log("draw");
+        DrawScreenController.prototype.spinDeactive = function () {
+            var _this = this;
+            this.isSpinDown = true;
+            this.raffleService.spinDeactive().then(function () {
+                _this.isSpinDown = false;
+                _this.isSpinning = false;
+            });
+        };
+        DrawScreenController.prototype.discard = function () {
+            this.raffleService.discard();
         };
         return DrawScreenController;
     }());

@@ -7,22 +7,44 @@ module Raffle {
     }
 
     export class DrawScreenController {
-        private $inject: string[] = ["raffleService"];
+        public $inject: string[] = ["raffleService"];
+
+        private isSpinning: boolean = false;
+        private isSpinDown: boolean = false;
 
         private get value(): number {
             return this.raffleService.drawnTicket;
+        }
+
+        private get allowSpin(): boolean {
+            return this.raffleService.allowSpin && !this.isSpinDown;
+        }
+
+        private get allowDiscard(): boolean {
+            return this.value <= 0
+                ? false
+                : !this.isSpinning;
         }
         
         constructor(private raffleService: IRaffleService) {
             
         }
 
-        private spin(): void {
-            console.log("spin");
+        private spinActive(): void {
+            this.isSpinning = true;
+            this.raffleService.spinActive();
         }
 
-        private draw(): void {
-            console.log("draw");
+        private spinDeactive(): void {
+            this.isSpinDown = true;
+            this.raffleService.spinDeactive().then(() => {
+                this.isSpinDown = false;
+                this.isSpinning = false;
+            });
+        }
+
+        private discard(): void {
+            this.raffleService.discard();
         }
     }
 }

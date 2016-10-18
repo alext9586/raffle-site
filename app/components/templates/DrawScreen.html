@@ -3,5 +3,16 @@
         {{$ctrl.value}}
     </div>
 
-    <button class="spin-button" ng-keydown="$ctrl.spin()" ng-keyup="$ctrl.draw()">Spin</button>
+    <button class="spin-button"
+        ng-mousedown="$ctrl.spinActive()"
+        ng-mouseup="$ctrl.spinDeactive()"
+        ng-disabled="!$ctrl.allowSpin">
+        Spin
+    </button>
+
+    <button class="discard-button"
+        ng-click="$ctrl.discard()"
+        ng-disabled="!$ctrl.allowDiscard">
+        Discard
+    </button>
 </div>
