@@ -10,7 +10,7 @@ module Raffle {
         private $inject: string[] = ["raffleService"];
 
         private get value(): number {
-            return this.raffleService.maxValue;
+            return this.raffleService.takeTicket;
         }
         
         constructor(private raffleService: IRaffleService) {

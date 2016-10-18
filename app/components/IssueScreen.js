@@ -14,7 +14,7 @@ var Raffle;
         }
         Object.defineProperty(IssueScreenController.prototype, "value", {
             get: function () {
-                return this.raffleService.maxValue;
+                return this.raffleService.takeTicket;
             },
             enumerable: true,
             configurable: true

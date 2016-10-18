@@ -2,39 +2,35 @@ var Raffle;
 (function (Raffle) {
     var RaffleService = (function () {
         function RaffleService() {
-            this.localMaxValue = 1;
-            this.localBucket = [];
-            this.localCurrentIndex = -1;
+            this.maxValue = 1;
+            this.bucket = [];
+            this.currentIndex = -1;
         }
-        Object.defineProperty(RaffleService.prototype, "maxValue", {
+        Object.defineProperty(RaffleService.prototype, "takeTicket", {
             get: function () {
-                return this.localMaxValue;
+                return this.maxValue;
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(RaffleService.prototype, "bucket", {
+        Object.defineProperty(RaffleService.prototype, "drawnTicket", {
             get: function () {
-                return this.localBucket;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(RaffleService.prototype, "currentIndex", {
-            get: function () {
-                return this.localCurrentIndex;
+                return this.currentIndexWithinRange() ? this.bucket[this.currentIndex] : 0;
             },
             enumerable: true,
             configurable: true
         });
         RaffleService.prototype.take = function () {
-            this.localBucket.push(this.localMaxValue++);
+            this.bucket.push(this.maxValue++);
         };
         RaffleService.prototype.remove = function () {
-            if (this.currentIndex >= 0 && this.currentIndex < this.localBucket.length) {
-                this.localBucket.splice(this.currentIndex, 1);
-                this.localCurrentIndex = -1;
+            if (this.currentIndexWithinRange()) {
+                this.bucket.splice(this.currentIndex, 1);
+                this.currentIndex = -1;
             }
+        };
+        RaffleService.prototype.currentIndexWithinRange = function () {
+            return this.currentIndex >= 0 && this.currentIndex < this.bucket.length;
         };
         return RaffleService;
     }());

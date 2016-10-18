@@ -1,45 +1,44 @@
 module Raffle {
     export interface IRaffleService {
-        maxValue: number;
-        bucket: number[];
-        currentIndex: number;
+        takeTicket: number;
+        drawnTicket: number;
 
         take(): void;
         remove(): void;
     }
 
     export class RaffleService implements IRaffleService {
-        private localMaxValue: number;
-        private localBucket: number[];
-        private localCurrentIndex: number;
+        private maxValue: number;
+        private bucket: number[];
+        private currentIndex: number;
 
-        public get maxValue(): number {
-            return this.localMaxValue;
-        }
+        public get takeTicket(): number {
+            return this.maxValue;
+        } 
 
-        public get bucket(): number[] {
-            return this.localBucket;
-        }
-
-        public get currentIndex(): number {
-            return this.localCurrentIndex;
+        public get drawnTicket(): number {
+            return this.currentIndexWithinRange() ? this.bucket[this.currentIndex] : 0;
         }
 
 		constructor() {
-            this.localMaxValue = 1;
-            this.localBucket = [];
-            this.localCurrentIndex = -1;
+            this.maxValue = 1;
+            this.bucket = [];
+            this.currentIndex = -1;
 		}
 
         public take(): void {
-            this.localBucket.push(this.localMaxValue++);
+            this.bucket.push(this.maxValue++);
         }
 
         public remove(): void {
-            if (this.currentIndex >= 0 && this.currentIndex < this.localBucket.length) {
-                this.localBucket.splice(this.currentIndex, 1);
-                this.localCurrentIndex = -1;
+            if (this.currentIndexWithinRange()) {
+                this.bucket.splice(this.currentIndex, 1);
+                this.currentIndex = -1;
             }
+        }
+
+        private currentIndexWithinRange(): boolean {
+            return this.currentIndex >= 0 && this.currentIndex < this.bucket.length;
         }
     }
 }
