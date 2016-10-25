@@ -23,7 +23,7 @@ module Raffle {
         private currentIndex: number;
 
         private spinToken: ng.IPromise<any>;
-        readonly spinInterval: number = 20;
+        readonly spinInterval: number = 200;
 
         public get takeTicket(): number {
             return this.maxValue;

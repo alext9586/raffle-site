@@ -6,7 +6,7 @@ var Raffle;
             this.$timeout = $timeout;
             this.$q = $q;
             this.$inject = ["$interval", "$timeout", "$q"];
-            this.spinInterval = 20;
+            this.spinInterval = 200;
             this.reset();
         }
         Object.defineProperty(RaffleService.prototype, "takeTicket", {

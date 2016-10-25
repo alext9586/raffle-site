@@ -1,7 +1,5 @@
 <div class="issue-screen">
-    <div class="ticket-number-container">
-        {{$ctrl.value}}
-    </div>
+    <number-display value="{{$ctrl.value}}"></number-display>
 
     <button class="take-button" ng-click="$ctrl.take()">Take</button>
 </div>

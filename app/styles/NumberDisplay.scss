@@ -1,0 +1,22 @@
+@import "_variables";
+
+.fade {
+    opacity: 1;
+    transition: opacity 100ms ease-in-out;
+
+    &.fade-out {
+        opacity: 0;
+    }
+
+    &.fade-in {
+        opacity: 1;
+    }
+}
+
+.number-display-container {
+    text-align: center;
+    font-size: $font-size-xl;
+    line-height: 1em;
+    padding: $spacing-s;
+    border: 1px solid black;
+}

@@ -1,7 +1,5 @@
 <div class="draw-screen">
-    <div class="ticket-number-container">
-        {{$ctrl.value}}
-    </div>
+    <number-display value="{{$ctrl.value}}"></number-display>
 
     <button class="spin-button"
         ng-mousedown="$ctrl.spinActive()"

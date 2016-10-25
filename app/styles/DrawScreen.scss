@@ -1,14 +1,6 @@
 @import "_variables";
 
 .draw-screen {
-    .ticket-number-container {
-        text-align: center;
-        font-size: $font-size-xl;
-        line-height: 1em;
-        padding: $spacing-s;
-        border: 1px solid black;
-    }
-
     .spin-button,
     .discard-button {
         text-transform: uppercase;
