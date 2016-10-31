@@ -1,13 +1,20 @@
 var Raffle;
 (function (Raffle) {
     var RaffleService = (function () {
-        function RaffleService($interval, $timeout, $q) {
+        function RaffleService($interval, $timeout, $q, $window) {
             this.$interval = $interval;
             this.$timeout = $timeout;
             this.$q = $q;
-            this.$inject = ["$interval", "$timeout", "$q"];
+            this.$window = $window;
+            this.$inject = ["$interval", "$timeout", "$q", "$window"];
+            this.storageKeys = {
+                maxValue: "maxValue",
+                bucket: "bucket",
+                discardBucket: "discardBucket",
+                currentIndex: "currentIndex"
+            };
             this.spinInterval = 200;
-            this.reset();
+            this.getPersistedData();
         }
         Object.defineProperty(RaffleService.prototype, "takeTicket", {
             get: function () {
@@ -45,9 +52,11 @@ var Raffle;
             this.bucket = [];
             this.discardBucket = [];
             this.currentIndex = -1;
+            this.persistData();
         };
         RaffleService.prototype.take = function () {
             this.bucket.push(this.maxValue++);
+            this.persistData();
         };
         RaffleService.prototype.spinActive = function () {
             var _this = this;
@@ -81,6 +90,7 @@ var Raffle;
                 this.discardBucket.push(this.drawnTicket);
                 this.bucket.splice(this.currentIndex, 1);
                 this.currentIndex = -1;
+                this.persistData();
             }
         };
         RaffleService.prototype.printDebug = function () {
@@ -92,6 +102,30 @@ var Raffle;
         };
         RaffleService.prototype.currentIndexWithinRange = function () {
             return this.currentIndex >= 0 && this.currentIndex < this.bucket.length;
+        };
+        RaffleService.prototype.getPersistedData = function () {
+            var maxValue = this.getStoredValue(this.storageKeys.maxValue);
+            this.maxValue = maxValue ? parseInt(maxValue) : 0;
+            var bucket = this.getStoredValue(this.storageKeys.bucket);
+            this.bucket = bucket ? this.transmogrifyBucket(bucket) : [];
+            var discardBucket = this.getStoredValue(this.storageKeys.discardBucket);
+            this.discardBucket = discardBucket ? this.transmogrifyBucket(discardBucket) : [];
+            var currentIndex = this.getStoredValue(this.storageKeys.currentIndex);
+            this.currentIndex = currentIndex ? parseInt(currentIndex) : -1;
+        };
+        RaffleService.prototype.transmogrifyBucket = function (bucket) {
+            return bucket.split(",").map(function (n) {
+                return parseInt(n);
+            });
+        };
+        RaffleService.prototype.getStoredValue = function (key) {
+            return this.$window.localStorage.getItem(key);
+        };
+        RaffleService.prototype.persistData = function () {
+            this.$window.localStorage.setItem(this.storageKeys.maxValue, this.maxValue.toString());
+            this.$window.localStorage.setItem(this.storageKeys.bucket, this.bucket.toString());
+            this.$window.localStorage.setItem(this.storageKeys.discardBucket, this.discardBucket.toString());
+            this.$window.localStorage.setItem(this.storageKeys.currentIndex, this.currentIndex.toString());
         };
         return RaffleService;
     }());
