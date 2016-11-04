@@ -20,10 +20,15 @@
 .draw-screen .discard-button {
   text-transform: uppercase; }
 
+@font-face {
+  font-family: TruenoRegular;
+  src: url(/fonts/TruenoRg.otf); }
+
 html,
 body {
   line-height: 1.5em;
-  font-size: 16px; }
+  font-size: 16px;
+  font-family: "TruenoRegular"; }
 
 .btn {
   text-transform: uppercase; }

@@ -3,10 +3,16 @@
 @import "IssueScreen";
 @import "DrawScreen";
 
+@font-face {
+    font-family: TruenoRegular;
+    src: url(/fonts/TruenoRg.otf);
+}
+
 html,
 body {
     line-height: $line-height;
     font-size: $font-size-m;
+    font-family: "TruenoRegular"
 }
 
 .btn {
