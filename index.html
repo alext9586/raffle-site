@@ -3,24 +3,27 @@
 <head>
     <link rel="stylesheet" href="./stylesheets/Styles.css"></link>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>-->
     <script src="./app/scripts/jquery.min.js"></script>
     <script src="./app/scripts/angular.min.js"></script>
     <script src="./app/scripts/angular-animate.js"></script>
+    <script src="./app/scripts/angular-route.js"></script>
     <script src="./app/services/RaffleService.js"></script>
     <script src="./app/components/NumberDisplay.js"></script>
     <script src="./app/components/IssueScreen.js"></script>
     <script src="./app/components/DrawScreen.js"></script>
     <script src="./app/components/ResetScreen.js"></script>
+    <script src="./app/components/MainApp.js"></script>
     <script src="./app/modules/PageModule.js"></script>
+    <script src="./app/modules/AppModule.js"></script>
     <meta charset="UTF-8">
     <title>Raffle</title>
 </head>
 
-<body ng-app="PageModule">
-    <issue-screen></issue-screen>
-    <draw-screen></draw-screen>
-    <reset-screen></reset-screen>
+<body ng-app="AppModule">
+    <main-app></main-app>
 </body>
 
 </html>
