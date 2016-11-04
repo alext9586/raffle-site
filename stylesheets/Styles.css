@@ -1,6 +1,6 @@
 .fade {
   opacity: 1;
-  transition: opacity 100ms ease-in-out; }
+  transition: opacity 50ms ease-in-out; }
   .fade.fade-out {
     opacity: 0; }
   .fade.fade-in {

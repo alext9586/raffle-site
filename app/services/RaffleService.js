@@ -7,13 +7,12 @@ var Raffle;
             this.$q = $q;
             this.$window = $window;
             this.$inject = ["$interval", "$timeout", "$q", "$window"];
+            this.spinInterval = 100;
             this.storageKeys = {
                 maxValue: "maxValue",
                 bucket: "bucket",
-                discardBucket: "discardBucket",
-                currentIndex: "currentIndex"
+                discardBucket: "discardBucket"
             };
-            this.spinInterval = 200;
             this.getPersistedData();
         }
         Object.defineProperty(RaffleService.prototype, "takeTicket", {
@@ -79,7 +78,9 @@ var Raffle;
                     }, interval);
                 }
                 else {
-                    def.resolve();
+                    _this.$timeout(function () {
+                        def.resolve();
+                    }, interval);
                 }
             };
             timer(0);
@@ -110,8 +111,6 @@ var Raffle;
             this.bucket = bucket ? this.transmogrifyBucket(bucket) : [];
             var discardBucket = this.getStoredValue(this.storageKeys.discardBucket);
             this.discardBucket = discardBucket ? this.transmogrifyBucket(discardBucket) : [];
-            var currentIndex = this.getStoredValue(this.storageKeys.currentIndex);
-            this.currentIndex = currentIndex ? parseInt(currentIndex) : -1;
         };
         RaffleService.prototype.transmogrifyBucket = function (bucket) {
             return bucket.split(",").map(function (n) {
@@ -125,7 +124,6 @@ var Raffle;
             this.$window.localStorage.setItem(this.storageKeys.maxValue, this.maxValue.toString());
             this.$window.localStorage.setItem(this.storageKeys.bucket, this.bucket.toString());
             this.$window.localStorage.setItem(this.storageKeys.discardBucket, this.discardBucket.toString());
-            this.$window.localStorage.setItem(this.storageKeys.currentIndex, this.currentIndex.toString());
         };
         return RaffleService;
     }());

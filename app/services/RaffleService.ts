@@ -20,17 +20,16 @@ module Raffle {
         private maxValue: number;
         private bucket: number[];
         private discardBucket: number[];
+
         private currentIndex: number;
+        private spinToken: ng.IPromise<any>;
+        readonly spinInterval: number = 100;
 
         private storageKeys = {
             maxValue: "maxValue",
             bucket: "bucket",
-            discardBucket: "discardBucket",
-            currentIndex: "currentIndex"
+            discardBucket: "discardBucket"
         };
-
-        private spinToken: ng.IPromise<any>;
-        readonly spinInterval: number = 200;
 
         public get takeTicket(): number {
             return this.maxValue;
@@ -94,7 +93,9 @@ module Raffle {
                         timer(running);
                     }, interval);
                 } else {
-                    def.resolve();
+                    this.$timeout(() => {
+                        def.resolve();
+                    }, interval);
                 }
             };
 
@@ -133,9 +134,6 @@ module Raffle {
 
             var discardBucket = this.getStoredValue(this.storageKeys.discardBucket);
             this.discardBucket = discardBucket ? this.transmogrifyBucket(discardBucket) : [];
-
-            var currentIndex = this.getStoredValue(this.storageKeys.currentIndex);
-            this.currentIndex = currentIndex ? parseInt(currentIndex) : -1;
         }
 
         private transmogrifyBucket(bucket: string): number[] {
@@ -152,7 +150,6 @@ module Raffle {
             this.$window.localStorage.setItem(this.storageKeys.maxValue, this.maxValue.toString());
             this.$window.localStorage.setItem(this.storageKeys.bucket, this.bucket.toString());
             this.$window.localStorage.setItem(this.storageKeys.discardBucket, this.discardBucket.toString());
-            this.$window.localStorage.setItem(this.storageKeys.currentIndex, this.currentIndex.toString());
         }
     }
 }
