@@ -1,8 +1,10 @@
 @import "_variables";
 
 .draw-screen {
-    .spin-button,
-    .discard-button {
-        text-transform: uppercase;
+    padding: $spacing-m 0;
+    text-align: center;
+
+    .draw-display {
+        cursor: pointer;
     }
 }

@@ -1,14 +1,18 @@
 <div class="draw-screen">
-    <number-display value="{{$ctrl.value}}"></number-display>
+    <p>
+        Hold and release to spin.
+    </p>
 
-    <button class="spin-button"
+    <number-display class="draw-display" value="{{$ctrl.value}}"></number-display>
+
+    <button class="btn-raffle"
         ng-mousedown="$ctrl.spinActive()"
         ng-mouseup="$ctrl.spinDeactive()"
         ng-disabled="!$ctrl.allowSpin">
         Spin
     </button>
 
-    <button class="discard-button"
+    <button class="btn-raffle"
         ng-click="$ctrl.discard()"
         ng-disabled="!$ctrl.allowDiscard">
         Discard

@@ -1,2 +1,5 @@
-.issue-screen .take-button {
-  text-transform: uppercase; }
+.issue-screen {
+  padding: 8px 0;
+  text-align: center; }
+  .issue-screen .issue-display {
+    cursor: pointer; }

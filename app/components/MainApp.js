@@ -8,8 +8,19 @@ var Raffle;
     }
     Raffle.MainApp = MainApp;
     var MainAppController = (function () {
-        function MainAppController() {
+        function MainAppController($rootScope, $location) {
+            var _this = this;
+            this.$rootScope = $rootScope;
+            this.$location = $location;
+            this.currentTab = "";
+            $rootScope.$on("$locationChangeSuccess", function () {
+                _this.currentTab = _this.$location.path();
+            });
         }
+        MainAppController.prototype.pathsMatch = function (tab) {
+            return this.currentTab === "/" + (tab || "");
+        };
+        MainAppController.$inject = ["$rootScope", "$location"];
         return MainAppController;
     }());
     Raffle.MainAppController = MainAppController;

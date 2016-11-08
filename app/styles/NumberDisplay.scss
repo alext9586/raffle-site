@@ -2,7 +2,7 @@
 
 .fade {
     opacity: 1;
-    transition: opacity 50ms ease-in-out;
+    transition: opacity 100ms ease-in-out;
 
     &.fade-out {
         opacity: 0;
@@ -13,10 +13,22 @@
     }
 }
 
+.number-display-gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.15+0,0+100;White+to+Transparent */
+    background: -moz-linear-gradient(-45deg,  rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    border-radius: $spacing-xs;
+}
+
 .number-display-container {
     text-align: center;
-    font-size: $font-size-xl;
-    line-height: 1em;
-    padding: $spacing-s;
-    border: 1px solid black;
+    font-size: $font-size-xxl;
+    line-height: $line-height;
+    padding: $spacing-xs;
+    border-radius: $spacing-s;
+    background: $black;
+    color: $blue;
+    text-shadow: 0 0 $spacing-l $darker-blue;
 }

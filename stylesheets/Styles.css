@@ -1,24 +1,44 @@
 .fade {
   opacity: 1;
-  transition: opacity 50ms ease-in-out; }
+  transition: opacity 100ms ease-in-out; }
   .fade.fade-out {
     opacity: 0; }
   .fade.fade-in {
     opacity: 1; }
 
+.number-display-gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.15+0,0+100;White+to+Transparent */
+  background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffffff', endColorstr='#00ffffff',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  border-radius: 2px; }
+
 .number-display-container {
   text-align: center;
-  font-size: 32px;
-  line-height: 1em;
-  padding: 4px;
-  border: 1px solid black; }
+  font-size: 64px;
+  line-height: 1.5em;
+  padding: 2px;
+  border-radius: 4px;
+  background: #0e1111;
+  color: #51afc9;
+  text-shadow: 0 0 16px #3589a1; }
 
-.issue-screen .take-button {
-  text-transform: uppercase; }
+.issue-screen {
+  padding: 8px 0;
+  text-align: center; }
+  .issue-screen .issue-display {
+    cursor: pointer; }
 
-.draw-screen .spin-button,
-.draw-screen .discard-button {
-  text-transform: uppercase; }
+.draw-screen {
+  padding: 8px 0;
+  text-align: center; }
+  .draw-screen .draw-display {
+    cursor: pointer; }
 
 @font-face {
   font-family: TruenoRegular;
@@ -28,7 +48,56 @@ html,
 body {
   line-height: 1.5em;
   font-size: 16px;
-  font-family: "TruenoRegular"; }
+  font-family: "TruenoRegular", "Arial", "Helvetica";
+  background-color: #4c5b5c;
+  color: #eef0f0; }
 
-.btn {
-  text-transform: uppercase; }
+a {
+  -webkit-transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  color: #eef0f0; }
+  a:hover {
+    -webkit-transition: all 250ms ease-in-out;
+    -moz-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out; }
+  a:hover {
+    color: #6bf9b7; }
+
+.btn-raffle {
+  -webkit-transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  color: #eef0f0;
+  background-color: transparent;
+  display: inline-block;
+  padding: 4px 16px;
+  margin: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  border-bottom: 4px solid transparent;
+  outline: none;
+  text-decoration: none; }
+  .btn-raffle:hover {
+    -webkit-transition: all 250ms ease-in-out;
+    -moz-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out; }
+  .btn-raffle:disabled {
+    color: #7c8788; }
+  .btn-raffle:not([disabled]).activated, .btn-raffle:not([disabled]):active, .btn-raffle:not([disabled]):focus, .btn-raffle:not([disabled]):hover {
+    color: #6bf9b7;
+    border-bottom-color: #6bf9b7;
+    outline: none;
+    text-decoration: none; }
+
+.app-tab {
+  margin: auto;
+  padding: 8px;
+  text-align: center;
+  font-size: 24px; }

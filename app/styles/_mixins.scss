@@ -1,0 +1,16 @@
+@import "_variables";
+
+@mixin transition($var) {
+    -webkit-transition: $var;
+    -moz-transition: $var;
+    -o-transition: $var;
+    transition: $var;
+}
+
+@mixin hover-transition($var) {
+    @include transition($var);
+
+    &:hover {
+        @include transition($var);
+    }
+}

@@ -1,7 +1,10 @@
 @import "_variables";
 
 .issue-screen {
-    .take-button {
-        text-transform: uppercase;
+    padding: $spacing-m 0;
+    text-align: center;
+
+    .issue-display {
+        cursor: pointer;
     }
 }

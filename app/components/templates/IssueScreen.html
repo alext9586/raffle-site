@@ -1,5 +1,6 @@
 <div class="issue-screen">
-    <number-display value="{{$ctrl.value}}"></number-display>
-
-    <button class="take-button" ng-click="$ctrl.take()">Take</button>
+    <p>
+        Tap number to take.
+    </p>
+    <number-display class="issue-display" ng-click="$ctrl.take()" value="{{$ctrl.value}}"></number-display>
 </div>

@@ -1,4 +1,5 @@
 @import "_variables";
+@import "_mixins";
 @import "NumberDisplay";
 @import "IssueScreen";
 @import "DrawScreen";
@@ -12,9 +13,55 @@ html,
 body {
     line-height: $line-height;
     font-size: $font-size-m;
-    font-family: "TruenoRegular"
+    font-family: "TruenoRegular", "Arial", "Helvetica";
+    background-color: $background-color;
+    color: $text-color;
 }
 
-.btn {
+a {
+    @include hover-transition($transition);
+    color: $lite-gray;
+
+    &:hover {
+        color: $green;
+    }
+}
+
+.btn-raffle {
+    @include hover-transition($transition);
+    color: $lite-gray;
+    background-color: transparent;
+    display: inline-block;
+    padding: $spacing-s $spacing-l;
+    margin: $spacing-m;
+    cursor: pointer;
+    text-align: center;
     text-transform: uppercase;
+    border: none;
+    border-bottom: $spacing-s solid transparent;
+    outline: none;
+    text-decoration: none;
+
+    &:disabled {
+        color: $disabled-text-color;
+    }
+
+    &:not([disabled]){
+        &.activated,
+        &:active,
+        &:focus,
+        &:hover {
+            color: $green;
+            border-bottom-color: $green;
+            outline: none;
+            text-decoration: none;
+        }
+    }
+}
+
+.app-tab {
+    margin: auto;
+    padding: $spacing-m;
+    text-align: center;
+    font-size: $font-size-l;
 }

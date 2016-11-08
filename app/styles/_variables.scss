@@ -3,9 +3,26 @@ $font-size-s: 8px;
 $font-size-m: 16px;
 $font-size-l: 24px;
 $font-size-xl: 32px;
+$font-size-xxl: 64px;
 $line-height: 1.5em;
 
 $spacing-xs: 2px;
 $spacing-s: 4px;
 $spacing-m: 8px;
 $spacing-l: 16px;
+
+$transition: all 250ms ease-in-out;
+
+$lite-gray: #eef0f0;
+$silver: #7c8788;
+$gray: #4c5b5c;
+$green: #6bf9b7;
+$pink: #e24879;
+$blue: #51afc9;
+$darker-blue: #3589a1;
+$yellow: #fff249;
+$black: #0e1111;
+
+$background-color: $gray;
+$text-color: $lite-gray;
+$disabled-text-color: $silver;

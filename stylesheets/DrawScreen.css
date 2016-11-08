@@ -1,3 +1,5 @@
-.draw-screen .spin-button,
-.draw-screen .discard-button {
-  text-transform: uppercase; }
+.draw-screen {
+  padding: 8px 0;
+  text-align: center; }
+  .draw-screen .draw-display {
+    cursor: pointer; }

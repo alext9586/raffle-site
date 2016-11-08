@@ -19,7 +19,7 @@ gulp.task("sass-build", function() {
 });
 
 gulp.task("sass-watch", ["sass-build"], function() {
-    gulp.watch("./scss/*.scss", ["sass-build"]);
+    gulp.watch("./app/styles/*.scss", ["sass-build"]);
 });
 
 gulp.task("build", ["sass-build", "ts-build"]);
