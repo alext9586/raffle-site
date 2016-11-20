@@ -39,9 +39,16 @@ var Raffle;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(RaffleService.prototype, "allowSpin", {
+        Object.defineProperty(RaffleService.prototype, "hasTickets", {
             get: function () {
                 return this.bucket.length > 1;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(RaffleService.prototype, "hasNoTickets", {
+            get: function () {
+                return this.bucket.length <= 0;
             },
             enumerable: true,
             configurable: true

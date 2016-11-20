@@ -5,11 +5,6 @@
     text-align: center;
 
     .number-display-container {
-        &.tap-icon-disabled {
-            color: $gray;
-            text-shadow: none;
-        }
-        
         .glyphicon.glyphicon-random {
             top: 5px;
         }
@@ -21,5 +16,10 @@
 
     .draw-display-disabled {
         cursor: not-allowed;
+    }
+
+    .tap-icon-disabled .number-display-container {
+        color: $gray;
+        text-shadow: none;
     }
 }

@@ -2,7 +2,7 @@ var Raffle;
 (function (Raffle) {
     function DrawScreen() {
         return {
-            templateUrl: "app/components/templates/DrawScreen.html",
+            templateUrl: "app/components/templates/DrawScreen.html?v=1",
             controller: DrawScreenController
         };
     }
@@ -11,7 +11,7 @@ var Raffle;
     (function (State) {
         State[State["Ready"] = 0] = "Ready";
         State[State["Spinning"] = 1] = "Spinning";
-        State[State["Stopped"] = 2] = "Stopped";
+        State[State["Discard"] = 2] = "Discard";
     })(State || (State = {}));
     var DrawScreenController = (function () {
         function DrawScreenController($scope, $element, raffleService) {
@@ -52,7 +52,7 @@ var Raffle;
         });
         Object.defineProperty(DrawScreenController.prototype, "isDiscard", {
             get: function () {
-                return this.state === State.Stopped;
+                return this.state === State.Discard;
             },
             enumerable: true,
             configurable: true
@@ -64,15 +64,36 @@ var Raffle;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(DrawScreenController.prototype, "hasValidBucket", {
+        Object.defineProperty(DrawScreenController.prototype, "hasTickets", {
             get: function () {
-                return this.raffleService.allowSpin;
+                return this.raffleService.hasTickets;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(DrawScreenController.prototype, "hasOneTicket", {
+            get: function () {
+                return this.raffleService.hasOneTicket;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(DrawScreenController.prototype, "hasNoTickets", {
+            get: function () {
+                return this.raffleService.hasNoTickets;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(DrawScreenController.prototype, "isDisplayDisabled", {
+            get: function () {
+                return this.isSpinning || this.hasOneTicket || this.hasNoTickets;
             },
             enumerable: true,
             configurable: true
         });
         DrawScreenController.prototype.numberMousedown = function () {
-            if (this.isReady && this.hasValidBucket) {
+            if (this.isReady && this.hasTickets) {
                 this.state = State.Spinning;
                 this.spinActive();
             }
@@ -91,7 +112,7 @@ var Raffle;
         DrawScreenController.prototype.spinDeactive = function () {
             var _this = this;
             this.raffleService.spinDeactive().then(function () {
-                _this.state = State.Stopped;
+                _this.state = State.Discard;
             });
         };
         DrawScreenController.prototype.discard = function () {

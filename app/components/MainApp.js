@@ -2,7 +2,7 @@ var Raffle;
 (function (Raffle) {
     function MainApp() {
         return {
-            templateUrl: "app/components/templates/MainApp.html?v=1",
+            templateUrl: "app/components/templates/MainApp.html?v=2",
             controller: MainAppController
         };
     }

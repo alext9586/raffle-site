@@ -1,7 +1,7 @@
 module Raffle {
     export function DrawScreen(): ng.IComponentOptions {
         return {
-            templateUrl: "app/components/templates/DrawScreen.html",
+            templateUrl: "app/components/templates/DrawScreen.html?v=1",
             controller: DrawScreenController
         };
     }
@@ -9,7 +9,7 @@ module Raffle {
     enum State {
         Ready,
         Spinning,
-        Stopped
+        Discard
     }
 
     export class DrawScreenController {
@@ -25,15 +25,27 @@ module Raffle {
         }
 
         private get isDiscard(): boolean {
-            return this.state === State.Stopped;
+            return this.state === State.Discard;
         }
 
         private get isReady(): boolean {
             return this.state === State.Ready;
         }
 
-        private get hasValidBucket(): boolean {
-            return this.raffleService.allowSpin;
+        private get hasTickets(): boolean {
+            return this.raffleService.hasTickets;
+        }
+
+        private get hasOneTicket(): boolean {
+            return this.raffleService.hasOneTicket;
+        }
+
+        private get hasNoTickets(): boolean {
+            return this.raffleService.hasNoTickets;
+        }
+
+        private get isDisplayDisabled(): boolean {
+            return this.isSpinning || this.hasOneTicket || this.hasNoTickets;
         }
 
         constructor(private $scope: ng.IScope, private $element: ng.IAugmentedJQuery, private raffleService: IRaffleService) {
@@ -59,7 +71,7 @@ module Raffle {
         }
 
         private numberMousedown(): void {
-            if(this.isReady && this.hasValidBucket) {
+            if(this.isReady && this.hasTickets) {
                 this.state = State.Spinning;
                 this.spinActive();
             }
@@ -79,7 +91,7 @@ module Raffle {
 
         private spinDeactive(): void {
             this.raffleService.spinDeactive().then(() => {
-                this.state = State.Stopped;
+                this.state = State.Discard;
             });
         }
 

@@ -1,7 +1,7 @@
 module Raffle {
     export function MainApp(): ng.IComponentOptions {
         return {
-            templateUrl: "app/components/templates/MainApp.html?v=1",
+            templateUrl: "app/components/templates/MainApp.html?v=2",
             controller: MainAppController
         };
     }
@@ -17,7 +17,7 @@ module Raffle {
             });
         }
 
-        private pathsMatch(tab): boolean {
+        private pathsMatch(tab: string): boolean {
             return this.currentTab === `/${tab || ""}`;
         }
 

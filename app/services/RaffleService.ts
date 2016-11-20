@@ -3,7 +3,8 @@ module Raffle {
         takeTicket: number;
         drawnTicket: number;
         hasOneTicket: boolean;
-        allowSpin: boolean;
+        hasTickets: boolean;
+        hasNoTickets: boolean;
 
         reset(): void;
         take(): void;
@@ -48,8 +49,12 @@ module Raffle {
             return this.bucket.length === 1;
         }
 
-        public get allowSpin(): boolean {
+        public get hasTickets(): boolean {
             return this.bucket.length > 1;
+        }
+
+        public get hasNoTickets(): boolean {
+            return this.bucket.length <= 0;
         }
 
 		constructor(private $interval: ng.IIntervalService,

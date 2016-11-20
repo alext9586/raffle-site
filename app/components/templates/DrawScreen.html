@@ -1,26 +1,30 @@
 <div class="draw-screen">
     <p>
-        <span ng-show="!$ctrl.hasValidBucket">Not enough numbers to draw.</span>
-        <span ng-show="$ctrl.hasValidBucket && $ctrl.isReady">Hold and release to spin.</span>
+        <span ng-show="$ctrl.hasNoTickets">No numbers taken yet.</span>
+        <span ng-show="$ctrl.hasOneTicket">Only one number to draw.</span>
+        <span ng-show="$ctrl.hasTickets && $ctrl.isReady">Hold and release to spin.</span>
         <span ng-show="$ctrl.isSpinning">Spinning...</span>
-        <span ng-show="$ctrl.isDiscard">Tap to discard number.</span>
+        <span ng-show="$ctrl.isDiscard">Tap to draw number.</span>
     </p>
 
-    <div ng-class="($ctrl.isSpining || !$ctrl.hasValidBucket) ? 'draw-display-disabled' : 'draw-display'"
+    <div ng-class="$ctrl.isDisplayDisabled ? 'draw-display-disabled' : 'draw-display'"
         ng-mousedown="$ctrl.numberMousedown()"
         ng-mouseup="$ctrl.numberMouseup()">
-        <number-display
-            ng-show="!$ctrl.isReady"
-            value="{{$ctrl.value}}">
-        </number-display>
 
-        <div
-            class="number-display-container"
-            ng-class="{'tap-icon-disabled': !$ctrl.hasValidBucket}"
-            ng-show="$ctrl.isReady">
-            <div class="number-display-gradient">
-                <div class="glyphicon glyphicon-random"></div>
+        <div ng-class="{'tap-icon-disabled': !$ctrl.hasTickets}">
+            <number-display
+                ng-show="!$ctrl.isReady || $ctrl.hasOneTicket"
+                value="{{$ctrl.value}}">
+            </number-display>
+
+            <div
+                class="number-display-container"
+                ng-show="$ctrl.isReady && !$ctrl.hasOneTicket">
+                <div class="number-display-gradient">
+                    <div class="glyphicon glyphicon-random"></div>
+                </div>
             </div>
         </div>
+
     </div>
 </div>

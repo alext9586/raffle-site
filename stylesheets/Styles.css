@@ -39,15 +39,15 @@
 .draw-screen {
   padding: 8px 0;
   text-align: center; }
-  .draw-screen .number-display-container.tap-icon-disabled {
-    color: #4c5b5c;
-    text-shadow: none; }
   .draw-screen .number-display-container .glyphicon.glyphicon-random {
     top: 5px; }
   .draw-screen .draw-display {
     cursor: pointer; }
   .draw-screen .draw-display-disabled {
     cursor: not-allowed; }
+  .draw-screen .tap-icon-disabled .number-display-container {
+    color: #4c5b5c;
+    text-shadow: none; }
 
 @font-face {
   font-family: TruenoRegular;
