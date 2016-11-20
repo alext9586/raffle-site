@@ -13,7 +13,7 @@ module Raffle {
     }
 
     export class DrawScreenController {
-        public $inject: string[] = ["raffleService"];
+        public $inject: string[] = ["$scope", "$element", "raffleService"];
         private state: State;
 
         private get value(): number {
@@ -36,8 +36,26 @@ module Raffle {
             return this.raffleService.allowSpin;
         }
 
-        constructor(private raffleService: IRaffleService) {
+        constructor(private $scope: ng.IScope, private $element: ng.IAugmentedJQuery, private raffleService: IRaffleService) {
             this.state = State.Ready;
+
+            this.$element.bind("touchstart", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                this.$scope.$apply(() => {
+                    this.numberMousedown();
+                });
+            });
+
+            this.$element.bind("touchend", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                this.$scope.$apply(() => {
+                    this.numberMouseup();
+                });
+            });
         }
 
         private numberMousedown(): void {

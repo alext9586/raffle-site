@@ -1,7 +1,7 @@
 module Raffle {
     export function ResetScreen(): ng.IComponentOptions {
         return {
-            templateUrl: "app/components/templates/ResetScreen.html?v=1",
+            templateUrl: "app/components/templates/ResetScreen.html?v=2",
             controller: ResetScreenController
         };
     }

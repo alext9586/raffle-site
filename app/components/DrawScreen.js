@@ -14,10 +14,27 @@ var Raffle;
         State[State["Stopped"] = 2] = "Stopped";
     })(State || (State = {}));
     var DrawScreenController = (function () {
-        function DrawScreenController(raffleService) {
+        function DrawScreenController($scope, $element, raffleService) {
+            var _this = this;
+            this.$scope = $scope;
+            this.$element = $element;
             this.raffleService = raffleService;
-            this.$inject = ["raffleService"];
+            this.$inject = ["$scope", "$element", "raffleService"];
             this.state = State.Ready;
+            this.$element.bind("touchstart", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                _this.$scope.$apply(function () {
+                    _this.numberMousedown();
+                });
+            });
+            this.$element.bind("touchend", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                _this.$scope.$apply(function () {
+                    _this.numberMouseup();
+                });
+            });
         }
         Object.defineProperty(DrawScreenController.prototype, "value", {
             get: function () {
