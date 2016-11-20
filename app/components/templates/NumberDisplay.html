@@ -1,6 +1,6 @@
 <div class="number-display-container">
     <div class="number-display-gradient">
-        <div class="fade" ng-class="{'fade-in': $ctrl.visible, 'fade-out': !$ctrl.visible}">
+        <div class="display-value" ng-class="{'invisible': $ctrl.value === 0}">
             {{$ctrl.value}}
         </div>
     </div>
