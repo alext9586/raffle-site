@@ -6,5 +6,6 @@ var Raffle;
     PageModule.component("issueScreen", Raffle.IssueScreen());
     PageModule.component("drawScreen", Raffle.DrawScreen());
     PageModule.component("resetScreen", Raffle.ResetScreen());
+    PageModule.component("historyScreen", Raffle.HistoryScreen());
 })(Raffle || (Raffle = {}));
 //# sourceMappingURL=PageModule.js.map

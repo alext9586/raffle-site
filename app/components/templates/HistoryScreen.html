@@ -1,0 +1,7 @@
+<div class="issue-screen">
+    <p class="text-center" ng-if="$ctrl.discardedTickets.length === 0">No numbers drawn</p>
+    <p class="text-center" ng-if="$ctrl.discardedTickets.length > 0">Latest number first:</p>
+    <div class="text-center" ng-repeat="ticket in $ctrl.discardedTickets">
+        {{ticket}}
+    </div>
+</div>

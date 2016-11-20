@@ -17,10 +17,20 @@
                     href="#/Draw">Draw</a>
             </div>
         </div>
+
         <div ng-view></div>
-        <div class="app-tab" ng-class="{'hidden': $ctrl.pathsMatch('Reset')}">
+
+        <div class="row" ng-class="{'hidden': $ctrl.pathsMatch('Reset')}">
+            <div class="col-xs-6 app-tab">
                 <a class="btn-raffle" href="#/Reset">Reset</a>
             </div>
+            <div class="col-xs-6 app-tab">
+                <a class="btn-raffle"
+                    ng-class="{'activated': $ctrl.pathsMatch('History')}"
+                    href="#/History">History</a>
+            </div>
+        </div>
+
     </div>
 </div>
 

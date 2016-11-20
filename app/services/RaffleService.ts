@@ -10,6 +10,7 @@ module Raffle {
         spinActive(): void;
         spinDeactive(): ng.IPromise<void>;
         discard(): void;
+        getDiscardedTickets(): number[];
 
         printDebug(): void;
     }
@@ -110,6 +111,10 @@ module Raffle {
                 this.currentIndex = -1;
                 this.persistData();
             }
+        }
+
+        public getDiscardedTickets(): number[] {
+            return !this.discardBucket ? [] : angular.copy(this.discardBucket).reverse();
         }
 
         public printDebug(): void {

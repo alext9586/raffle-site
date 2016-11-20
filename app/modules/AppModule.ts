@@ -12,6 +12,9 @@ module Raffle {
                 .when("/Reset", {
                     template: "<reset-screen></reset-screen>"
                 })
+                .when("/History", {
+                    template: "<history-screen></history-screen>"
+                })
                 .when("/", {
                     template: "<issue-screen></issue-screen>"
                 });

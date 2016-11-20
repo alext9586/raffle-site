@@ -7,4 +7,5 @@ module Raffle {
     PageModule.component("issueScreen", IssueScreen());
     PageModule.component("drawScreen", DrawScreen());
     PageModule.component("resetScreen", ResetScreen());
+    PageModule.component("historyScreen", HistoryScreen());
 }

@@ -94,6 +94,9 @@ var Raffle;
                 this.persistData();
             }
         };
+        RaffleService.prototype.getDiscardedTickets = function () {
+            return !this.discardBucket ? [] : angular.copy(this.discardBucket).reverse();
+        };
         RaffleService.prototype.printDebug = function () {
             console.info("bucket: ", this.bucket);
             console.info("discard: ", this.discardBucket);
