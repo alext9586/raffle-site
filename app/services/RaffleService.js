@@ -116,7 +116,7 @@ var Raffle;
         };
         RaffleService.prototype.getPersistedData = function () {
             var maxValue = this.getStoredValue(this.storageKeys.maxValue);
-            this.maxValue = maxValue ? parseInt(maxValue) : 0;
+            this.maxValue = maxValue ? parseInt(maxValue) : 1;
             var bucket = this.getStoredValue(this.storageKeys.bucket);
             this.bucket = bucket ? this.transmogrifyBucket(bucket) : [];
             var discardBucket = this.getStoredValue(this.storageKeys.discardBucket);
