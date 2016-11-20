@@ -6,45 +6,68 @@ module Raffle {
         };
     }
 
+    enum State {
+        Ready,
+        Spinning,
+        Stopped
+    }
+
     export class DrawScreenController {
         public $inject: string[] = ["raffleService"];
-
-        private isSpinning: boolean = false;
-        private isSpinDown: boolean = false;
+        private state: State;
 
         private get value(): number {
             return this.raffleService.drawnTicket;
         }
 
-        private get allowSpin(): boolean {
-            return this.raffleService.allowSpin && !this.isSpinDown;
+        private get isSpinning(): boolean {
+            return this.state === State.Spinning;
         }
 
-        private get allowDiscard(): boolean {
-            return this.value <= 0
-                ? false
-                : !this.isSpinning;
+        private get isDiscard(): boolean {
+            return this.state === State.Stopped;
         }
-        
+
+        private get isReady(): boolean {
+            return this.state === State.Ready;
+        }
+
+        private get hasValidBucket(): boolean {
+            return this.raffleService.allowSpin;
+        }
+
         constructor(private raffleService: IRaffleService) {
-            
+            this.state = State.Ready;
+        }
+
+        private numberMousedown(): void {
+            if(this.isReady && this.hasValidBucket) {
+                this.state = State.Spinning;
+                this.spinActive();
+            }
+        }
+
+        private numberMouseup(): void {
+            if(this.isSpinning) {
+                this.spinDeactive();
+            } else if (this.isDiscard) {
+                this.discard();
+            }
         }
 
         private spinActive(): void {
-            this.isSpinning = true;
             this.raffleService.spinActive();
         }
 
         private spinDeactive(): void {
-            this.isSpinDown = true;
             this.raffleService.spinDeactive().then(() => {
-                this.isSpinDown = false;
-                this.isSpinning = false;
+                this.state = State.Stopped;
             });
         }
 
         private discard(): void {
             this.raffleService.discard();
+            this.state = State.Ready;
         }
     }
 }

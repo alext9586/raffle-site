@@ -11,6 +11,7 @@
 
 html,
 body {
+    @include unselectable();
     line-height: $line-height;
     font-size: $font-size-m;
     font-family: "TruenoRegular", "Arial", "Helvetica";
@@ -29,6 +30,7 @@ a {
 
 .btn-raffle {
     @include hover-transition($transition);
+    @include unselectable();
     color: $lite-gray;
     background-color: transparent;
     display: inline-block;

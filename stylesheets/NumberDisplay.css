@@ -16,9 +16,18 @@
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffffff', endColorstr='#00ffffff',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */
-  border-radius: 2px; }
+  border-radius: 2px;
+  pointer-events: none; }
 
 .number-display-container {
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
   text-align: center;
   font-size: 64px;
   line-height: 1.5em;
@@ -26,4 +35,5 @@
   border-radius: 4px;
   background: #0e1111;
   color: #51afc9;
-  text-shadow: 0 0 16px #3589a1; }
+  text-shadow: 0 0 16px #3589a1;
+  pointer-events: none; }

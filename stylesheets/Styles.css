@@ -16,9 +16,18 @@
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffffff', endColorstr='#00ffffff',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */
-  border-radius: 2px; }
+  border-radius: 2px;
+  pointer-events: none; }
 
 .number-display-container {
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
   text-align: center;
   font-size: 64px;
   line-height: 1.5em;
@@ -26,7 +35,8 @@
   border-radius: 4px;
   background: #0e1111;
   color: #51afc9;
-  text-shadow: 0 0 16px #3589a1; }
+  text-shadow: 0 0 16px #3589a1;
+  pointer-events: none; }
 
 .issue-screen {
   padding: 8px 0;
@@ -37,8 +47,15 @@
 .draw-screen {
   padding: 8px 0;
   text-align: center; }
+  .draw-screen .number-display-container.tap-icon-disabled {
+    color: #4c5b5c;
+    text-shadow: none; }
+  .draw-screen .number-display-container .glyphicon.glyphicon-random {
+    top: 5px; }
   .draw-screen .draw-display {
     cursor: pointer; }
+  .draw-screen .draw-display-disabled {
+    cursor: not-allowed; }
 
 @font-face {
   font-family: TruenoRegular;
@@ -46,6 +63,14 @@
 
 html,
 body {
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
   line-height: 1.5em;
   font-size: 16px;
   font-family: "TruenoRegular", "Arial", "Helvetica";
@@ -71,6 +96,14 @@ a {
   -moz-transition: all 250ms ease-in-out;
   -o-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
   color: #eef0f0;
   background-color: transparent;
   display: inline-block;
