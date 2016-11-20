@@ -86,3 +86,13 @@ a {
         line-height: $line-height;        
     }
 }
+
+#copyright {
+    text-align: center;
+    font-size: 10px;
+
+    a {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}

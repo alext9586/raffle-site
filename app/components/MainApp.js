@@ -20,6 +20,9 @@ var Raffle;
         MainAppController.prototype.pathsMatch = function (tab) {
             return this.currentTab === "/" + (tab || "");
         };
+        MainAppController.prototype.getCopyrightYear = function () {
+            return new Date().getFullYear().toString();
+        };
         MainAppController.$inject = ["$rootScope", "$location"];
         return MainAppController;
     }());

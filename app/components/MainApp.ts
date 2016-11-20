@@ -20,5 +20,9 @@ module Raffle {
         private pathsMatch(tab): boolean {
             return this.currentTab === `/${tab || ""}`;
         }
+
+        private getCopyrightYear(): string {
+            return new Date().getFullYear().toString();
+        }
     }
 }
