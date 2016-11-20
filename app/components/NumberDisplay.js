@@ -33,16 +33,18 @@ var Raffle;
         };
         NumberDisplayController.prototype.changeOpacity = function (value, opacity, hide) {
             var _this = this;
+            var opacityInterval = 0.1;
             if (opacity < 0) {
                 this.myValue = value;
                 hide = false;
+                opacity = opacityInterval;
             }
             if (opacity > 1.0)
                 return;
             this.$element.find(".display-value").attr("style", "opacity: " + opacity);
-            var multiplier = hide ? -0.1 : 0.1;
+            var interval = hide ? -opacityInterval : opacityInterval;
             this.$timeout(function () {
-                _this.changeOpacity(value, opacity + multiplier, hide);
+                _this.changeOpacity(value, opacity + interval, hide);
             }, 10);
         };
         return NumberDisplayController;

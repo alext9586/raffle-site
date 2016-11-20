@@ -87,7 +87,7 @@ module Raffle {
             var timer = (running) => {
                 interval += running++;
 
-                if (interval < 380) {
+                if (interval < 400) {
                     this.$timeout(() => {
                         this.incrementCurrentIndex();
                         timer(running);

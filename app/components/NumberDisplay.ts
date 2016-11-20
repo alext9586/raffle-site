@@ -32,9 +32,12 @@ module Raffle {
         }
 
         private changeOpacity(value: number, opacity: number, hide?: boolean): void {
+            var opacityInterval = 0.1;
+
             if(opacity < 0) {
                 this.myValue = value;
                 hide = false;
+                opacity = opacityInterval;
             }
 
             if(opacity > 1.0)
@@ -42,9 +45,9 @@ module Raffle {
             
             this.$element.find(".display-value").attr("style", `opacity: ${opacity}`);
 
-            var multiplier = hide ? -0.1 : 0.1;
+            var interval = hide ? -opacityInterval : opacityInterval;
             this.$timeout(() => {
-                this.changeOpacity(value, opacity + multiplier, hide);
+                this.changeOpacity(value, opacity + interval, hide);
             }, 10);
         }
     }

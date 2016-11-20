@@ -126,3 +126,17 @@ a {
   padding: 8px;
   text-align: center;
   font-size: 24px; }
+
+.site-header {
+  margin: 16px 0;
+  padding: 2px 16px;
+  border-radius: 4px;
+  background: #fff249;
+  color: #0e1111;
+  pointer-events: none; }
+  .site-header .title {
+    font-size: 32px;
+    line-height: 1em; }
+  .site-header .subtitle {
+    font-size: 16px;
+    line-height: 1.5em; }

@@ -71,7 +71,7 @@ var Raffle;
             var interval = this.spinInterval;
             var timer = function (running) {
                 interval += running++;
-                if (interval < 380) {
+                if (interval < 400) {
                     _this.$timeout(function () {
                         _this.incrementCurrentIndex();
                         timer(running);

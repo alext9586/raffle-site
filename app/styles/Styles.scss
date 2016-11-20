@@ -67,3 +67,22 @@ a {
     text-align: center;
     font-size: $font-size-l;
 }
+
+.site-header {
+    margin: $spacing-l 0;
+    padding: $spacing-xs $spacing-l;
+    border-radius: $spacing-s;
+    background: $yellow;
+    color: $black;
+    pointer-events: none;
+
+    .title {
+        font-size: $font-size-xl;
+        line-height: 1em;
+    }
+
+    .subtitle {
+        font-size: $font-size-m;
+        line-height: $line-height;        
+    }
+}
