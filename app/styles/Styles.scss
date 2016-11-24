@@ -92,7 +92,7 @@ a {
 .footer {
     text-align: center;
     font-size: 10px;
-    line-height: 2em;
+    line-height: $line-height;
 
     a {
         cursor: pointer;
