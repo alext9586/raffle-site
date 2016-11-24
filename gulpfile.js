@@ -1,6 +1,9 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
-var shell = require('gulp-shell')
+var shell = require("gulp-shell");
+var concat = require("gulp-concat");
+
+var bundleFiles = require('./bundle.files.json');
 
 //-----------------------------------------------------------------------------
 // Typescript configuration
@@ -13,15 +16,21 @@ gulp.task("ts-watch", shell.task("tsc -w"));
 // https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into-css
 gulp.task("sass-build", function() {
     var outputDir = "./stylesheets";
-    gulp.src("./app/styles/*.scss")
+    return gulp.src("./app/styles/*.scss")
         .pipe(sass())
         .pipe(gulp.dest(outputDir));
 });
 
 gulp.task("sass-watch", ["sass-build"], function() {
-    gulp.watch("./app/styles/*.scss", ["sass-build"]);
+    return gulp.watch("./app/styles/*.scss", ["sass-build"]);
 });
 
-gulp.task("build", ["sass-build", "ts-build"]);
+gulp.task("ts-concat", ["ts-build"], function() {
+    return gulp.src(bundleFiles.scripts)
+        .pipe(concat("bundle.js"))
+        .pipe(gulp.dest("./"));
+});
+
+gulp.task("build", ["sass-build", "ts-concat"]);
 
 gulp.task("watch", ["sass-watch", "ts-watch"]);

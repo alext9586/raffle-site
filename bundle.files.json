@@ -1,0 +1,13 @@
+{
+    "scripts":[
+        "./app/services/RaffleService.js",
+        "./app/components/NumberDisplay.js",
+        "./app/components/IssueScreen.js",
+        "./app/components/DrawScreen.js",
+        "./app/components/ResetScreen.js",
+        "./app/components/HistoryScreen.js",
+        "./app/components/MainApp.js",
+        "./app/modules/PageModule.js",
+        "./app/modules/AppModule.js"
+    ]
+}
