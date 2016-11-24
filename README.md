@@ -1,6 +1,6 @@
 # Surely: The Raffle App
 
-This is a simple web app that simulates issuing and drawing tickets at a raffle. It is written in Typescript and AngularJS as a single page application. It is purely a client-side app with no back-end interactions. It saves the data to the browser's local storage.
+This is a simple web app that simulates issuing and drawing tickets at a raffle. It is written in Typescript and AngularJS as a single page application. It is purely a client-side app with no back-end interactions. It saves the data to the browser's local storage. The live version of the app can be found at [Surely on Phamous-Apps.com](http://surely.phamous-apps.com).
 
 Despite this project being so simple, it is very personal to me. My organization throws a public holiday party where people participate in a [white elephant gift exchange](https://en.wikipedia.org/wiki/White_elephant_gift_exchange), and I wanted to make an app that drew random numbers out of a hat. I worked on this app while I was visiting my sick mother. This app is dedicated to my mother even though she had no idea I was writing it nor was she able to see it in its finished state.
 
