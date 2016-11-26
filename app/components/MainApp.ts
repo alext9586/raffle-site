@@ -1,7 +1,7 @@
 module Raffle {
     export function MainApp(): ng.IComponentOptions {
         return {
-            templateUrl: "app/components/templates/MainApp.html?v=2",
+            templateUrl: "templates/MainApp.html",
             controller: MainAppController
         };
     }

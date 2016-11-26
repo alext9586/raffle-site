@@ -1,7 +1,7 @@
 module Raffle {
     export function DrawScreen(): ng.IComponentOptions {
         return {
-            templateUrl: "app/components/templates/DrawScreen.html?v=1",
+            templateUrl: "templates/DrawScreen.html",
             controller: DrawScreenController
         };
     }

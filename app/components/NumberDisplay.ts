@@ -1,7 +1,7 @@
 module Raffle {
     export function NumberDisplay(): ng.IComponentOptions {
         return {
-            templateUrl: "app/components/templates/NumberDisplay.html?v=2",
+            templateUrl: "templates/NumberDisplay.html",
             controller: NumberDisplayController,
             bindings: {
                 value: "@"

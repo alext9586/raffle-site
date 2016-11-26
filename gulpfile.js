@@ -29,11 +29,12 @@ gulp.task("sass-watch", ["sass-build"], function() {
 gulp.task("cache-template", function () {
   return gulp.src(bundleFiles.templates)
     .pipe(templateCache("TemplateModule.ts", {
-        module: "PageModule",
+        module: "AppModule",
+        standalone: false,
         templateHeader: 'module Raffle { angular.module("<%= module %>"<%= standalone %>).run(["$templateCache", function($templateCache) {',
         templateFooter: '}]);}',
         transformUrl: function(url) {
-            return "app/components/templates/" + url;
+            return "templates/" + url;
         }
     }))
     .pipe(gulp.dest("./app/modules/"));

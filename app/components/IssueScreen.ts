@@ -1,7 +1,7 @@
 module Raffle {
     export function IssueScreen(): ng.IComponentOptions {
         return {
-            templateUrl: "app/components/templates/IssueScreen.html",
+            templateUrl: "templates/IssueScreen.html",
             controller: IssueScreenController
         };
     }

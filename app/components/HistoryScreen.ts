@@ -1,7 +1,7 @@
 module Raffle {
     export function HistoryScreen(): ng.IComponentOptions {
         return {
-            templateUrl: "app/components/templates/HistoryScreen.html",
+            templateUrl: "templates/HistoryScreen.html",
             controller: HistoryScreenController
         };
     }

@@ -8,8 +8,8 @@
         "./app/components/HistoryScreen.js",
         "./app/components/MainApp.js",
         "./app/modules/PageModule.js",
-        "./app/modules/TemplateModule.js",
-        "./app/modules/AppModule.js"
+        "./app/modules/AppModule.js",
+        "./app/modules/TemplateModule.js"
     ],
     "templates": [
         "./app/components/templates/*.html"
