@@ -40,4 +40,6 @@ jspm_packages
 **/*.js.map
 app/components/**/*.js
 app/modules/**/*.js
+app/modules/TemplateModule.ts
 app/services/**/*.js
+bundle.js
