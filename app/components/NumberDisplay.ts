@@ -40,8 +40,10 @@ module Raffle {
                 opacity = opacityInterval;
             }
 
-            if(opacity > 1.0)
+            if(opacity > 1.0) {
+                this.$element.find(".display-value").attr("style", "opacity: 1");
                 return;
+            }
             
             this.$element.find(".display-value").attr("style", `opacity: ${opacity}`);
 
