@@ -38,3 +38,6 @@ jspm_packages
 
 # Ignore generated files
 **/*.js.map
+app/components/**/*.js
+app/modules/**/*.js
+app/services/**/*.js
