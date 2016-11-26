@@ -42,4 +42,5 @@ app/components/**/*.js
 app/modules/**/*.js
 app/modules/TemplateModule.ts
 app/services/**/*.js
+stylesheets/*
 bundle.js
