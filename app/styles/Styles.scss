@@ -3,6 +3,7 @@
 @import "NumberDisplay";
 @import "IssueScreen";
 @import "DrawScreen";
+@import "HistoryScreen";
 
 @font-face {
     font-family: "TruenoRegular";
@@ -68,6 +69,17 @@ a {
     padding: $spacing-m;
     text-align: center;
     font-size: $font-size-l;
+}
+
+.full-width-container {
+    .view-heading {
+        text-transform: uppercase;
+    }
+
+    .discarded-tickets-container {
+        height: 96px;
+        overflow: auto;
+    }
 }
 
 .site-header {

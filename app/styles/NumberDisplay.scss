@@ -13,13 +13,9 @@
 
 .number-display-container {
     @include unselectable();
+    @include digital-display-container;
     text-align: center;
     font-size: $font-size-xxl;
     line-height: $line-height;
-    padding: $spacing-xs;
-    border-radius: $spacing-s;
-    background: $black;
-    color: $blue;
-    text-shadow: 0 0 $spacing-l $darker-blue;
     pointer-events: none;
 }

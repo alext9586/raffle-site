@@ -9,8 +9,8 @@ module Raffle {
     export class HistoryScreenController {
         private $inject: string[] = ["raffleService"];
 
-        private get discardedTickets(): number[] {
-            return this.raffleService.getDiscardedTickets();
+        private get discardedTickets(): string {
+            return this.raffleService.getDiscardedTickets().join(", ");
         }
 
         constructor(private raffleService: IRaffleService) {

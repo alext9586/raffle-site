@@ -1,0 +1,17 @@
+@import "_mixins";
+@import "_variables";
+
+.history-screen {
+    padding: $spacing-m 0;
+    text-align: center;
+
+    .discarded-tickets-container {
+        @include digital-display-container;
+
+        .discarded-tickets-list {
+            padding: $spacing-s;
+            font-size: $font-size-l;
+            line-height: $line-height;
+        }
+    }
+}

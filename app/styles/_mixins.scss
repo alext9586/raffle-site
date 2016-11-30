@@ -15,6 +15,14 @@
     }
 }
 
+@mixin digital-display-container() {
+    padding: $spacing-xs;
+    border-radius: $spacing-s;
+    background: $black;
+    color: $blue;
+    text-shadow: 0 0 $spacing-l $darker-blue;
+}
+
 @mixin unselectable() {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
