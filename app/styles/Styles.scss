@@ -5,8 +5,8 @@
 @import "DrawScreen";
 
 @font-face {
-    font-family: TruenoRegular;
-    src: url(/fonts/TruenoRg.otf);
+    font-family: "TruenoRegular";
+    src: url("/fonts/TruenoRg.eot?#iefix") format("embedded-opentype"), url("/fonts/TruenoRg.otf");
 }
 
 html,
