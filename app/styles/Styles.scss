@@ -32,6 +32,7 @@ a {
 }
 
 .btn-raffle {
+    $opacity: 0.15;
     @include hover-transition($transition);
     @include unselectable();
     color: $lite-gray;
@@ -43,12 +44,19 @@ a {
     text-align: center;
     text-transform: uppercase;
     border: none;
-    border-bottom: $spacing-s solid rgba($text-color, 0.15);
+    border-bottom: $spacing-s solid rgba($text-color, $opacity);
     outline: none;
     text-decoration: none;
 
+    &.disabled,
     &:disabled {
+        opacity: $opacity;
         color: $disabled-text-color;
+        border-bottom-color: $disabled-text-color;
+        outline: none;
+        text-decoration: none;
+        cursor: not-allowed;
+        pointer-events: none;
     }
 
     &:not([disabled]){

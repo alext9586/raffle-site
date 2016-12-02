@@ -7,11 +7,15 @@ module Raffle {
     }
 
     export class MainAppController {
-        public static $inject: string[] = ["$rootScope", "$location"];
+        public static $inject: string[] = ["$rootScope", "$location", "raffleService"];
 
         private currentTab: string = "";
 
-        constructor(private $rootScope: ng.IRootScopeService, private $location: ng.ILocationService) {
+        private get spinning(): boolean {
+            return this.raffleService.spinning;
+        }
+
+        constructor(private $rootScope: ng.IRootScopeService, private $location: ng.ILocationService, private raffleService: IRaffleService) {
             $rootScope.$on("$locationChangeSuccess", () => {
                 this.currentTab = this.$location.path();
             });

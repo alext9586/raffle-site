@@ -70,9 +70,14 @@ module Raffle {
             });
         }
 
+        private changeState(value: State): void {
+            this.state = value;
+            this.raffleService.spinning = (value === State.Spinning);
+        }
+
         private numberMousedown(): void {
             if(this.isReady && this.hasTickets) {
-                this.state = State.Spinning;
+                this.changeState(State.Spinning);
                 this.spinActive();
             }
         }
@@ -91,13 +96,13 @@ module Raffle {
 
         private spinDeactive(): void {
             this.raffleService.spinDeactive().then(() => {
-                this.state = State.Discard;
+                this.changeState(State.Discard);
             });
         }
 
         private discard(): void {
             this.raffleService.discard();
-            this.state = State.Ready;
+            this.changeState(State.Ready);
         }
     }
 }
