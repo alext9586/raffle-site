@@ -27,7 +27,7 @@
 
         <div class="row row-spacer" ng-class="{'hidden': $ctrl.pathsMatch('Reset')}">
             <div class="col-xs-12 app-tab">
-                <a class="btn-raffle" href="#/Reset" ng-class="{'disabled': $ctrl.spinning}">Reset</a>
+                <a class="btn-raffle" href="#/Reset" ng-class="{'disabled': $ctrl.drawInProgress}">Reset</a>
             </div>
         </div>
 
@@ -43,12 +43,12 @@
             <div class="row">
                 <div class="col-xs-6 app-tab">
                     <a class="btn-raffle"
-                        ng-class="{'disabled': $ctrl.spinning, 'activated': ($ctrl.pathsMatch('Take') || $ctrl.pathsMatch(''))}"
+                        ng-class="{'disabled': $ctrl.drawInProgress, 'activated': ($ctrl.pathsMatch('Take') || $ctrl.pathsMatch(''))}"
                         href="#/Take">Take</a>
                 </div>
                 <div class="col-xs-6 app-tab">
                     <a class="btn-raffle"
-                        ng-class="{'disabled': $ctrl.spinning, 'activated': $ctrl.pathsMatch('Draw')}"
+                        ng-class="{'disabled': $ctrl.drawInProgress, 'activated': $ctrl.pathsMatch('Draw')}"
                         href="#/Draw">Draw</a>
                 </div>
             </div>
@@ -57,11 +57,11 @@
 
             <div class="row" ng-class="{'hidden': $ctrl.pathsMatch('Reset')}">
                 <div class="col-xs-6 app-tab">
-                    <a class="btn-raffle" ng-class="{'disabled': $ctrl.spinning}" href="#/Reset">Reset</a>
+                    <a class="btn-raffle" ng-class="{'disabled': $ctrl.drawInProgress}" href="#/Reset">Reset</a>
                 </div>
                 <div class="col-xs-6 app-tab">
                     <a class="btn-raffle"
-                        ng-class="{'disabled': $ctrl.spinning, 'activated': $ctrl.pathsMatch('History')}"
+                        ng-class="{'disabled': $ctrl.drawInProgress, 'activated': $ctrl.pathsMatch('History')}"
                         href="#/History">History</a>
                 </div>
             </div>
@@ -69,7 +69,7 @@
     </section>
     
     <section class="row row-spacer">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
             <div class="footer">
                 <p class="donation-notice">
                     If this app was useful to you and you would like to show your appreciation, please donate to the

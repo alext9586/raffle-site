@@ -11,8 +11,8 @@ module Raffle {
 
         private currentTab: string = "";
 
-        private get spinning(): boolean {
-            return this.raffleService.spinning;
+        private get drawInProgress(): boolean {
+            return this.raffleService.drawInProgress;
         }
 
         constructor(private $rootScope: ng.IRootScopeService, private $location: ng.ILocationService, private raffleService: IRaffleService) {

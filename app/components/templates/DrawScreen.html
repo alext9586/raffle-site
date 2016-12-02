@@ -4,7 +4,7 @@
         <span ng-show="$ctrl.hasOneTicket">Only one number to draw.</span>
         <span ng-show="$ctrl.hasTickets && $ctrl.isReady">Hold and release to spin.</span>
         <span ng-show="$ctrl.isSpinning">Spinning...</span>
-        <span ng-show="$ctrl.isDiscard">Tap to draw number.</span>
+        <span ng-show="$ctrl.isDiscard" class="draw-cta">Tap to draw number.</span>
     </p>
 
     <div ng-class="$ctrl.isDisplayDisabled ? 'draw-display-disabled' : 'draw-display'"

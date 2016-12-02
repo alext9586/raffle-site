@@ -5,7 +5,7 @@ module Raffle {
         hasOneTicket: boolean;
         hasTickets: boolean;
         hasNoTickets: boolean;
-        spinning: boolean;
+        drawInProgress: boolean;
 
         reset(): void;
         take(): void;
@@ -20,7 +20,7 @@ module Raffle {
     export class RaffleService implements IRaffleService {
         public $inject: string[] = ["$interval", "$timeout", "$q", "$window"];
 
-        private isSpinning: boolean;
+        private isDrawInProgress: boolean;
         private maxValue: number;
         private bucket: number[];
         private discardBucket: number[];
@@ -35,12 +35,12 @@ module Raffle {
             discardBucket: "discardBucket"
         };
 
-        public get spinning(): boolean {
-            return this.isSpinning;
+        public get drawInProgress(): boolean {
+            return this.isDrawInProgress;
         }
 
-        public set spinning(value: boolean) {
-            this.isSpinning = value;
+        public set drawInProgress(value: boolean) {
+            this.isDrawInProgress = value;
         }
 
         public get takeTicket(): number {

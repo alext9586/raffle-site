@@ -72,7 +72,7 @@ module Raffle {
 
         private changeState(value: State): void {
             this.state = value;
-            this.raffleService.spinning = (value === State.Spinning);
+            this.raffleService.drawInProgress = (value === State.Spinning || value === State.Discard);
         }
 
         private numberMousedown(): void {

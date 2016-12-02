@@ -1,7 +1,7 @@
 <div class="history-screen">
     <p ng-if="$ctrl.discardedTickets.length === 0">No numbers drawn</p>
     <p ng-if="$ctrl.discardedTickets.length > 0">Latest number first:</p>
-    <div class="discarded-tickets-container" ng-if="$ctrl.discardedTickets.length > 0">
+    <div class="discarded-tickets-container">
         <div class="number-display-gradient">
             <div class="discarded-tickets-list">
                 {{$ctrl.discardedTickets}}
