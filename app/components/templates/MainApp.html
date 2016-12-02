@@ -1,6 +1,6 @@
 <div class="main-app">
     <section class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
             <div class="site-header">
                 <div class="title">SURELY</div>
                 <div class="subtitle">The raffle app</div>
@@ -8,18 +8,33 @@
         </div>
     </section>
 
-    <section class="row visible-md-block visible-lg-block full-width-container">
-        <div class="col-md-4">
-            <div class="app-tab view-heading">Take</div>
-            <issue-screen></issue-screen>
+    <section class="visible-md-block visible-lg-block full-width-container">
+        <div class="row row-spacer">
+            <div class="col-md-4 col-md-offset-2">
+                <issue-screen></issue-screen>
+            </div>
+            <div class="col-md-4">
+                <draw-screen></draw-screen>
+            </div>
         </div>
-        <div class="col-md-4">
-            <div class="app-tab view-heading">Draw</div>
-            <draw-screen></draw-screen>
+
+        <div class="row row-spacer">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="app-tab view-heading">History</div>
+                <history-screen></history-screen>
+            </div>
         </div>
-        <div class="col-md-4">
-            <div class="app-tab view-heading">History</div>
-            <history-screen></history-screen>
+
+        <div class="row row-spacer" ng-class="{'hidden': $ctrl.pathsMatch('Reset')}">
+            <div class="col-xs-12 app-tab">
+                <a class="btn-raffle" href="#/Reset">Reset</a>
+            </div>
+        </div>
+
+        <div class="row row-spacer" ng-class="{'hidden': !$ctrl.pathsMatch('Reset')}">
+            <div class="col-xs-12">
+                <reset-screen></reset-screen>
+            </div>
         </div>
     </section>
     
@@ -53,8 +68,8 @@
         </div>
     </section>
     
-    <section class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0">
+    <section class="row row-spacer">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
             <div class="footer">
                 <p class="donation-notice">
                     If this app was useful to you and you would like to show your appreciation, please donate to the

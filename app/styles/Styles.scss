@@ -37,13 +37,13 @@ a {
     color: $lite-gray;
     background-color: transparent;
     display: inline-block;
-    padding: $spacing-s $spacing-l;
+    padding: $spacing-s $spacing-m;
     margin: $spacing-m;
     cursor: pointer;
     text-align: center;
     text-transform: uppercase;
     border: none;
-    border-bottom: $spacing-s solid transparent;
+    border-bottom: $spacing-s solid rgba($text-color, 0.15);
     outline: none;
     text-decoration: none;
 
@@ -75,11 +75,10 @@ a {
     .view-heading {
         text-transform: uppercase;
     }
+}
 
-    .discarded-tickets-container {
-        height: 96px;
-        overflow: auto;
-    }
+.row-spacer {
+    margin: $font-size-m 0;
 }
 
 .site-header {
