@@ -1,6 +1,6 @@
 {
   "name": "raffle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Issues numbers sequentially, then allows picking of a random ticket from pool.",
   "main": "index.html",
   "scripts": {
