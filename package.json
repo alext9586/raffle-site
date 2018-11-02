@@ -14,14 +14,15 @@
     "url": "https://github.com/alext9586/raffle-site"
   },
   "devDependencies": {
-    "angular": "^1.5.8",
+    "angular": "^1.7.5",
     "bootstrap": "^3.3.7",
-    "gulp": "^3.9.1",
-    "gulp-angular-templatecache": "^2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-angular-templatecache": "^2.2.3",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.2",
-    "http-server": "^0.9.0",
-    "typescript": "^2.0.3"
+    "http-server": "^0.11.1",
+    "typescript": "^2.9.2",
+    "lodash": ">=4.17.5"
   }
 }
