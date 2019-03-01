@@ -15,14 +15,13 @@
   },
   "devDependencies": {
     "angular": "^1.7.5",
-    "bootstrap": ">=4.1.2",
     "gulp": "^4.0.0",
     "gulp-angular-templatecache": "^2.2.3",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.2",
     "http-server": "^0.11.1",
-    "typescript": "^2.9.2",
-    "lodash": ">=4.17.5"
+    "lodash": ">=4.17.5",
+    "typescript": "^2.9.2"
   }
 }
